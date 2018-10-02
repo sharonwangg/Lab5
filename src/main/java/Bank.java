@@ -15,10 +15,9 @@ public class Bank {
     private String bankName;
 
     /**
-     * Default constructor setting bankName to "Illini Bank."
+     * Default constructor setting bankName to "Illini Bank".
      */
     public Bank() {
-        Bank.setNumberOfAccounts(Bank.getNumberOfAccounts() + 1);
         bankName = "Illini Bank";
     }
 
@@ -125,19 +124,26 @@ public class Bank {
         // Create Bank Accounts
         BankAccount account1 = new BankAccount("John Doe", BankAccount.BankAccountType.CHECKINGS);
         System.out.println("Bank account for John Doe created");
+        totalAccounts++;
 
         BankAccount account2 = new BankAccount("Jony Ive", BankAccount.BankAccountType.STUDENT);
         System.out.println("Bank account for Johy Ive created\n\n");
+        totalAccounts++;
 
         // Deposit money to both accounts and print new balance
         bank.depositMoney(account1, 1000.0);
         bank.depositMoney(account2, 5000.0);
+        System.out.println("account 1 new balance: " + account1.getAccountBalance());
+        System.out.println("account 2 new balance: " + account2.getAccountBalance());
 
         // Withdraw money from Account 2 and print new balance
         bank.withdrawMoney(account2, 200.0);
+        System.out.println("account 2 new balance: " + account2.getAccountBalance());
 
         // Transfer money from Account 2 to Account 1 and print new balances
         bank.transferMoney(account2, account1, 350.0);
+        System.out.println("account 1 new balance: " + account1.getAccountBalance());
+        System.out.println("account 2 new balance: " + account2.getAccountBalance());
 
         // Print number of accounts
         System.out.print("Number of active accounts at " + bank.bankName + " are ");
